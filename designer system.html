@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Design System — Núcleo Soluções</title>
+  
+  <!-- Web Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Reset & Base System */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      background-color: #f8fafc;
+      color: #0b0f19;
+      font-family: 'Inter Tight', sans-serif;
+      line-height: 1.6;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    
+    header {
+      background: rgba(248, 250, 252, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+      padding: 40px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #0b0f19;
+    }
+    
+    .logo span {
+      color: #FBBF24;
+      position: relative;
+    }
+    
+    .logo span::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: #FBBF24;
+      box-shadow: 0 0 8px rgba(251, 191, 36, 0.6);
+    }
+    
+    .header-meta {
+      font-size: 0.9rem;
+      color: #475569;
+      background: rgba(15, 23, 42, 0.03);
+      padding: 8px 16px;
+      border-radius: 100px;
+      border: 1px solid rgba(15,23,42,0.06);
+    }
+    
+    main {
+      max-width: 1200px;
+      margin: 40px auto 100px auto;
+      padding: 0 20px;
+    }
+    
+    /* Navigation Tabs */
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 40px;
+      border-bottom: 1px solid rgba(15,23,42,0.08);
+      padding-bottom: 15px;
+      flex-wrap: wrap;
+    }
+    
+    .tab-btn {
+      background: none;
+      border: none;
+      color: #475569;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: all 0.25s ease;
+    }
+    
+    .tab-btn:hover {
+      color: #0b0f19;
+      background: rgba(15,23,42,0.03);
+    }
+    
+    .tab-btn.active {
+      color: #FBBF24;
+      background: rgba(251, 191, 36, 0.1);
+      box-shadow: inset 0 0 0 1px rgba(251, 191, 36, 0.2);
+    }
+    
+    /* Grid & Layout Units */
+    .section-card {
+      background: #ffffff;
+      border: 1px solid rgba(15, 23, 42, 0.06);
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+      backdrop-filter: blur(10px);
+    }
+    
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      letter-spacing: -0.02em;
+      border-left: 4px solid #FBBF24;
+      padding-left: 15px;
+    }
+    
+    .section-desc {
+      color: #475569;
+      margin-bottom: 30px;
+      max-width: 800px;
+    }
+    
+    /* Colors Grid */
+    .colors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    
+    .color-item {
+      background: #ffffff;
+      border: 1px solid rgba(15, 23, 42, 0.06);
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .color-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(15,23,42,0.06);
+    }
+    
+    .color-swatch {
+      height: 120px;
+      width: 100%;
+      position: relative;
+    }
+    
+    .color-swatch::after {
+      content: 'Copiar HEX';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+    
+    .color-item:hover .color-swatch::after {
+      opacity: 1;
+    }
+    
+    .color-details {
+      padding: 15px;
+    }
+    
+    .color-name {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+    
+    .color-hex {
+      font-family: monospace;
+      color: #475569;
+      font-size: 0.9rem;
+    }
+    
+    /* Typography Showcase */
+    .typo-row {
+      display: flex;
+      border-bottom: 1px solid rgba(15,23,42,0.06);
+      padding: 25px 0;
+      align-items: baseline;
+    }
+    
+    .typo-row:last-child {
+      border-bottom: none;
+    }
+    
+    .typo-meta {
+      width: 250px;
+      flex-shrink: 0;
+      color: #475569;
+      font-size: 0.9rem;
+    }
+    
+    .typo-sample {
+      flex-grow: 1;
+    }
+    
+    .sample-h1 { font-family: 'Outfit', sans-serif; font-size: 3.5rem; font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; }
+    .sample-h2 { font-family: 'Outfit', sans-serif; font-size: 2.5rem; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; }
+    .sample-h3 { font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 700; line-height: 1.3; }
+    .sample-h4 { font-family: 'Outfit', sans-serif; font-size: 1.5rem; font-weight: 600; line-height: 1.4; }
+    .sample-body { font-family: 'Inter Tight', sans-serif; font-size: 1.1rem; font-weight: 400; color: #475569; }
+    .sample-caption { font-family: 'Inter Tight', sans-serif; font-size: 0.85rem; font-weight: 500; color: #FBBF24; text-transform: uppercase; letter-spacing: 0.05em; }
+    
+    /* Buttons Showcase */
+    .component-flex {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    
+    /* Brand Buttons Styling */
+    .ds-btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 36px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 100px;
+      background-color: #FBBF24;
+      color: #000000;
+      box-shadow: 0 4px 14px 0 rgba(251,191,36,0.3);
+      border: none;
+      cursor: pointer;
+      font-family: 'Inter Tight', sans-serif;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    .ds-btn-primary:hover {
+      background-color: #f59e0b;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px 0 rgba(251,191,36,0.45);
+    }
+    
+    .ds-btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 36px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 100px;
+      background-color: rgba(15,23,42,0.03);
+      color: #0b0f19;
+      border: 1px solid rgba(15, 23, 42, 0.12);
+      cursor: pointer;
+      font-family: 'Inter Tight', sans-serif;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    .ds-btn-secondary:hover {
+      background-color: rgba(15,23,42,0.06);
+      border-color: rgba(15,23,42,0.25);
+      transform: translateY(-2px);
+    }
+    
+    .ds-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #0b0f19;
+      font-size: 0.95rem;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 100px;
+      background: rgba(251,191,36,0.06);
+      border: 1px solid rgba(251,191,36,0.18);
+    }
+    
+    .ds-badge svg {
+      filter: drop-shadow(0 0 3px rgba(251,191,36,0.5));
+    }
+    
+    /* Form Elements */
+    .ds-form-group {
+      max-width: 400px;
+      margin-bottom: 20px;
+    }
+    
+    .ds-label {
+      display: block;
+      font-size: 0.85rem;
+      color: #475569;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    
+    .ds-input {
+      width: 100%;
+      color: #0b0f19;
+      background: rgba(15,23,42,0.03);
+      border: 1px solid rgba(15,23,42,0.1);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+    
+    .ds-input:focus {
+      border-color: #FBBF24;
+      box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.15);
+    }
+    
+    .ds-select {
+      width: 100%;
+      background: #ffffff;
+      color: #0b0f19;
+      border: 1px solid rgba(15,23,42,0.1);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-family: 'Inter Tight', sans-serif;
+      font-size: 1rem;
+      outline: none;
+    }
+    
+    .ds-select:focus {
+      border-color: #FBBF24;
+    }
+    
+    /* Interactive Card Showcase */
+    .card-showcase {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 30px;
+    }
+    
+    .ds-card {
+      background: #ffffff;
+      border: 1px solid rgba(15, 23, 42, 0.06);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 8px 32px rgba(15,23,42,0.04);
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    
+    .ds-card:hover {
+      border-color: rgba(251, 191, 36, 0.25);
+      transform: translateY(-4px);
+    }
+    
+    .ds-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #FBBF24, transparent);
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+    
+    .ds-card:hover::before {
+      opacity: 1;
+    }
+    
+    .ds-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: rgba(251, 191, 36, 0.1);
+      border: 1px solid rgba(251, 191, 36, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      color: #FBBF24;
+    }
+    
+    .ds-card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    
+    .ds-card-text {
+      color: #475569;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    
+    /* Notification Toast (Interactive feedback) */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #FBBF24;
+      color: #000;
+      font-weight: 700;
+      padding: 12px 24px;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(15,23,42,0.1);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      z-index: 1000;
+    }
+    
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <div class="logo">Núcleo <span>Soluções</span></div>
+      <div class="header-meta">Visual Identity & Design System • V1.0</div>
+    </div>
+  </header>
+
+  <main>
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab('colors')">Cores</button>
+      <button class="tab-btn" onclick="switchTab('typography')">Tipografia</button>
+      <button class="tab-btn" onclick="switchTab('buttons')">Botões & Badges</button>
+      <button class="tab-btn" onclick="switchTab('forms')">Formulários</button>
+      <button class="tab-btn" onclick="switchTab('cards')">Cards & Estruturas</button>
+    </div>
+
+    <!-- CORES SECTION -->
+    <section id="colors" class="tab-section">
+      <div class="section-card">
+        <h2 class="section-title">Paleta de Cores</h2>
+        <p class="section-desc">Nosso sistema de cores baseia-se em fundos claros de alta sofisticação com acentos dourados, toques da nossa identidade roxo deep (#4c1d95) e marcas de segurança/leitura.</p>
+        
+        <div class="colors-grid">
+          <!-- Slate Light -->
+          <div class="color-item" onclick="copyColor('#f8fafc')">
+            <div class="color-swatch" style="background-color: #f8fafc; border-bottom: 1px solid rgba(15,23,42,0.06);"></div>
+            <div class="color-details">
+              <div class="color-name">Fundo Primário</div>
+              <div class="color-hex">#F8FAFC</div>
+            </div>
+          </div>
+          <!-- Pure White -->
+          <div class="color-item" onclick="copyColor('#ffffff')">
+            <div class="color-swatch" style="background-color: #ffffff; border-bottom: 1px solid rgba(15,23,42,0.06);"></div>
+            <div class="color-details">
+              <div class="color-name">Fundo Puro</div>
+              <div class="color-hex">#FFFFFF</div>
+            </div>
+          </div>
+          <!-- Brand Gold -->
+          <div class="color-item" onclick="copyColor('#FBBF24')">
+            <div class="color-swatch" style="background-color: #FBBF24;"></div>
+            <div class="color-details">
+              <div class="color-name">Dourado / Acento</div>
+              <div class="color-hex">#FBBF24</div>
+            </div>
+          </div>
+          <!-- Brand Gold Accent -->
+          <div class="color-item" onclick="copyColor('#f59e0b')">
+            <div class="color-swatch" style="background-color: #f59e0b;"></div>
+            <div class="color-details">
+              <div class="color-name">Dourado Hover</div>
+              <div class="color-hex">#F59E0B</div>
+            </div>
+          </div>
+          <!-- Deep Dark -->
+          <div class="color-item" onclick="copyColor('#0b0f19')">
+            <div class="color-swatch" style="background-color: #0b0f19;"></div>
+            <div class="color-details">
+              <div class="color-name">Texto Escuro</div>
+              <div class="color-hex">#0B0F19</div>
+            </div>
+          </div>
+          <!-- Slate Muted -->
+          <div class="color-item" onclick="copyColor('#475569')">
+            <div class="color-swatch" style="background-color: #475569;"></div>
+            <div class="color-details">
+              <div class="color-name">Texto Mudo</div>
+              <div class="color-hex">#475569</div>
+            </div>
+          </div>
+          <!-- Accent Purple -->
+          <div class="color-item" onclick="copyColor('#e0e7ff')">
+            <div class="color-swatch" style="background-color: #e0e7ff;"></div>
+            <div class="color-details">
+              <div class="color-name">Destaque Roxo</div>
+              <div class="color-hex">#E0E7FF</div>
+            </div>
+          </div>
+          <!-- Identidade Roxo Deep -->
+          <div class="color-item" onclick="copyColor('#4c1d95')">
+            <div class="color-swatch" style="background-color: #4c1d95;"></div>
+            <div class="color-details">
+              <div class="color-name">Roxo Deep</div>
+              <div class="color-hex">#4C1D95</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIPOGRAFIA SECTION -->
+    <section id="typography" class="tab-section" style="display:none;">
+      <div class="section-card">
+        <h2 class="section-title">Tipografia e Escala</h2>
+        <p class="section-desc">Utilizamos as fontes Outfit para títulos principais (modernidade e peso) e Inter Tight para corpo e tabelas.</p>
+        
+        <div>
+          <div class="typo-row">
+            <div class="typo-meta">
+              <strong>Título H1</strong><br>
+              Outfit Extra Bold<br>
+              56px / Line Height 1.1
+            </div>
+            <div class="typo-sample sample-h1">Um núcleo completo de soluções</div>
+          </div>
+          <div class="typo-row">
+            <div class="typo-meta">
+              <strong>Título H2</strong><br>
+              Outfit Bold<br>
+              40px / Line Height 1.2
+            </div>
+            <div class="typo-sample sample-h2">Parcerias e Convênios Homologados</div>
+          </div>
+          <div class="typo-row">
+            <div class="typo-meta">
+              <strong>Título H3</strong><br>
+              Outfit Semi Bold<br>
+              32px
+            </div>
+            <div class="typo-sample sample-h3">Simulador Inteligente de Crédito</div>
+          </div>
+          <div class="typo-row">
+            <div class="typo-meta">
+              <strong>Título H4</strong><br>
+              Outfit Semi Bold<br>
+              24px
+            </div>
+            <div class="typo-sample sample-h4">Empréstimo Consignado</div>
+          </div>
+          <div class="typo-row">
+            <div class="typo-meta">
+              <strong>Corpo de Texto</strong><br>
+              Inter Tight Regular<br>
+              18px / Line Height 1.6
+            </div>
+            <div class="typo-sample sample-body">Simulação rápida, segura e 100% online. Sem taxas ocultas, sem filas e com liberação em tempo recorde.</div>
+          </div>
+          <div class="typo-row">
+            <div class="typo-meta">
+              <strong>Badges / Legendas</strong><br>
+              Inter Tight Medium<br>
+              13px / Letter Spacing 0.05em
+            </div>
+            <div class="typo-sample sample-caption">FGTS na conta via PIX a partir de 3 minutos</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOTÕES & BADGES SECTION -->
+    <section id="buttons" class="tab-section" style="display:none;">
+      <div class="section-card">
+        <h2 class="section-title">Botões, Badges & Ações</h2>
+        <p class="section-desc">Os botões do site são dinâmicos e contam com sombras volumosas e micro-transições.</p>
+        
+        <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.3rem; margin-bottom: 20px; color: #fff;">Estilos de Botões</h3>
+        <div class="component-flex">
+          <button class="ds-btn-primary">
+            Simular agora
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </button>
+          
+          <button class="ds-btn-secondary">
+            Mais Informações
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </button>
+        </div>
+        
+        <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.3rem; margin-top: 40px; margin-bottom: 20px; color: #fff;">Badges com Ícones</h3>
+        <div class="component-flex">
+          <div class="ds-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            FGTS na conta via PIX
+          </div>
+          
+          <div class="ds-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+            Consignado em até 24h
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULÁRIOS SECTION -->
+    <section id="forms" class="tab-section" style="display:none;">
+      <div class="section-card">
+        <h2 class="section-title">Controles de Formulário</h2>
+        <p class="section-desc">Estruturas de formulário otimizadas para captação de leads com validação visual integrada.</p>
+        
+        <div class="ds-form-group">
+          <label class="ds-label">Nome Completo</label>
+          <input type="text" class="ds-input" placeholder="Seu nome completo">
+        </div>
+        
+        <div class="ds-form-group">
+          <label class="ds-label">Convênio / Órgão</label>
+          <select class="ds-select">
+            <option>Servidor Estadual (GEA)</option>
+            <option>Servidor Municipal (PMM)</option>
+            <option>Servidor Federal (SIAPE)</option>
+            <option>Beneficiário INSS</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARDS SECTION -->
+    <section id="cards" class="tab-section" style="display:none;">
+      <div class="section-card">
+        <h2 class="section-title">Cards & Glassmorphism</h2>
+        <p class="section-desc">Elementos estruturais com efeito vidro e destaques lineares superiores para visual premium.</p>
+        
+        <div class="card-showcase">
+          <div class="ds-card">
+            <div class="ds-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12" y2="18"></line></svg>
+            </div>
+            <div class="ds-card-title">Empréstimo Consignado</div>
+            <div class="ds-card-text">Novo e refinanciamento com parcelamento em até 144x (GEA) com taxas diferenciadas a partir de 1,39% a.m.</div>
+          </div>
+          
+          <div class="ds-card">
+            <div class="ds-card-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </div>
+            <div class="ds-card-title">Antecipação de FGTS</div>
+            <div class="ds-card-text">Antecipe seu Saque-Aniversário do FGTS em até 10 parcelas com liberação em tempo recorde via PIX rápido.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    Cor copiada com sucesso!
+  </div>
+
+  <script>
+    function switchTab(tabId) {
+      // Hide all sections
+      const sections = document.querySelectorAll('.tab-section');
+      sections.forEach(sec => sec.style.display = 'none');
+      
+      // Show selected section
+      document.getElementById(tabId).style.display = 'block';
+      
+      // Update tab buttons state
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      
+      // Set active button
+      event.currentTarget.classList.add('active');
+    }
+    
+    function copyColor(hex) {
+      navigator.clipboard.writeText(hex).then(() => {
+        const toast = document.getElementById('toast');
+        toast.classList.add('show');
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 2500);
+      });
+    }
+  </script>
+</body>
+</html>
