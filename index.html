@@ -915,6 +915,8 @@
       --ns-accent-purple: #e0e7ff;
       --ns-brand-purple:  #4c1d95;
       --ns-brand-purple-glow: rgba(76, 29, 149, 0.15);
+      --ns-lilac:         #7c3aed;
+      --ns-lilac-glow:    rgba(124, 58, 237, 0.08);
     }
 
     /* ── Body & Backgrounds ── */
@@ -1037,9 +1039,45 @@
     }
 
     .elementor-14 .elementor-view-stacked .elementor-icon {
-      background-color: rgba(251, 191, 36, 0.12) !important;
-      color: var(--ns-gold) !important;
-      fill: var(--ns-gold) !important;
+      background-color: var(--ns-lilac-glow) !important;
+    }
+    .elementor-14 .elementor-view-stacked .elementor-icon,
+    .elementor-14 .elementor-view-stacked .elementor-icon svg,
+    .elementor-14 .elementor-view-stacked .elementor-icon svg path {
+      color: var(--ns-lilac) !important;
+      fill: var(--ns-lilac) !important;
+    }
+
+    /* ── Transição suave e efeito Hover nas caixas do Hero ── */
+    .elementor-element-17a3f4c0,
+    .elementor-element-677d4d11,
+    .elementor-element-11fb2dff {
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    .elementor-element-17a3f4c0:hover,
+    .elementor-element-677d4d11:hover,
+    .elementor-element-11fb2dff:hover {
+      transform: translateY(-5px) !important;
+    }
+
+    .elementor-element-17a3f4c0 .elementor-icon,
+    .elementor-element-17a3f4c0 .elementor-icon svg,
+    .elementor-element-17a3f4c0 .fgts-green,
+    .elementor-element-17a3f4c0 .fgts-yellow,
+    .elementor-element-17a3f4c0 .fgts-blue {
+      transition: all 0.3s ease-in-out !important;
+    }
+    .elementor-element-17a3f4c0:hover .elementor-icon {
+      background-color: rgba(0, 106, 78, 0.08) !important;
+    }
+    .elementor-element-17a3f4c0:hover .fgts-green {
+      fill: #006a4e !important;
+    }
+    .elementor-element-17a3f4c0:hover .fgts-yellow {
+      fill: #ffdf00 !important;
+    }
+    .elementor-element-17a3f4c0:hover .fgts-blue {
+      fill: #005b96 !important;
     }
 
     /* Ícone flutuante WhatsApp */
@@ -1128,15 +1166,20 @@
       color: var(--ns-text-light) !important;
     }
 
-    /* ── Textos fortes em vermelho → dourado ── */
+    /* ── Textos fortes em vermelho → roxo da marca ── */
     [style*="color:#851014"],
     [style*="color: #851014"] {
-      color: var(--ns-gold-text) !important;
+      color: var(--ns-brand-purple) !important;
     }
 
     [style*="color:#4F0608"],
     [style*="color: #4F0608"] {
-      color: var(--ns-gold-text) !important;
+      color: var(--ns-brand-purple) !important;
+    }
+
+    /* ── Títulos de recursos nas caixas de ícone ── */
+    .elementor-icon-box-description strong {
+      color: var(--ns-brand-purple) !important;
     }
 
     /* Bordas vermelhas → douradas */
@@ -1398,6 +1441,104 @@
     .elementor-element-2cf1c4e0 a:hover {
       color: var(--ns-text-light) !important;
     }
+
+    /* ── Custom range input (slider) styles ── */
+    #sim-value-range {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      outline: none;
+      background: #e2e8f0;
+      transition: background 0.1s;
+    }
+    #sim-value-range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 3px solid var(--ns-brand-purple);
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      transition: all 0.2s ease;
+    }
+    #sim-value-range::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+      border-color: var(--ns-gold);
+    }
+    #sim-value-range::-moz-range-thumb {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 3px solid var(--ns-brand-purple);
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      transition: all 0.2s ease;
+    }
+    #sim-value-range::-moz-range-thumb:hover {
+      transform: scale(1.15);
+      border-color: var(--ns-gold);
+    }
+
+    /* ── Convenio cards inside modal popup ── */
+    .convenio-option {
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    }
+    .convenio-option:hover {
+      border-color: var(--ns-brand-purple) !important;
+      background-color: rgba(76, 29, 149, 0.02) !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04) !important;
+    }
+    .convenio-option:active {
+      transform: translateY(0) !important;
+    }
+    #sim-cpf:focus {
+      border-color: var(--ns-brand-purple) !important;
+      box-shadow: 0 0 0 3px rgba(76, 29, 149, 0.1) !important;
+    }
+
+    /* ── Header Navigation Menu Color Overrides ── */
+    .elementor-14 .elementor-element.elementor-element-02f5daa .elementor-nav-menu--main .elementor-item,
+    .elementor-14 .elementor-element.elementor-element-02f5daa .elementor-nav-menu--main .elementor-item-anchor,
+    .elementor-element-02f5daa .elementor-item,
+    .elementor-element-02f5daa .elementor-item-anchor {
+      color: var(--ns-lilac) !important;
+    }
+    .elementor-14 .elementor-element.elementor-element-02f5daa .elementor-nav-menu--main .elementor-item:hover,
+    .elementor-14 .elementor-element.elementor-element-02f5daa .elementor-nav-menu--main .elementor-item-anchor:hover,
+    .elementor-14 .elementor-element.elementor-element-02f5daa .elementor-nav-menu--main .elementor-item.elementor-item-active,
+    .elementor-14 .elementor-element.elementor-element-02f5daa .elementor-nav-menu--main .elementor-item-anchor.elementor-item-active,
+    .elementor-element-02f5daa .elementor-item:hover,
+    .elementor-element-02f5daa .elementor-item-anchor:hover,
+    .elementor-element-02f5daa .elementor-item.elementor-item-active,
+    .elementor-element-02f5daa .elementor-item-anchor.elementor-item-active {
+      color: var(--ns-brand-purple) !important;
+    }
+
+    /* ── Footer Contact List Icons Color Overrides ── */
+    .elementor-element-ef3a0b4 .elementor-icon-list-icon svg {
+      fill: var(--ns-lilac) !important;
+      color: var(--ns-lilac) !important;
+    }
+
+    /* ── CTA Purple Box Contact List (Gold Icons & White Text) ── */
+    .elementor-element-7308c95 .elementor-icon-list-icon svg {
+      fill: var(--ns-gold) !important;
+      color: var(--ns-gold) !important;
+    }
+    .elementor-element-7c9cb0eb .elementor-icon-list-text,
+    .elementor-element-7c9cb0eb a,
+    .elementor-element-7308c95 .elementor-icon-list-text {
+      color: #ffffff !important;
+    }
+    .elementor-element-7c9cb0eb a:hover,
+    .elementor-element-7308c95 a:hover .elementor-icon-list-text {
+      color: var(--ns-gold) !important;
+    }
   </style>
 </head>
 
@@ -1624,8 +1765,10 @@
             <div class="elementor-icon-box-wrapper">
               <div class="elementor-icon-box-icon">
                 <span class="elementor-icon">
-                  <svg class="e-font-icon-svg" viewBox="0 0 320 512" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M296 160H180.6l42.6-129.8C227.7 15 215.7 0 200 0H56C44 0 33.8 8 32.2 20L0 276c-1.9 15.2 9.5 28 24.8 28h115.4l-42.7 129.8C93 497 105 512 120.7 512H264c12 0 22.2-8 23.8-20l32.2-256c1.9-15.2-9.5-28-24.8-28z" />
+                  <svg class="e-font-icon-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <path class="fgts-green" d="M10 10 H90 V26 H26 V90 H10 Z" />
+                    <path class="fgts-yellow" d="M32 32 H68 L32 68 Z" />
+                    <circle class="fgts-blue" cx="65" cy="65" r="18" />
                   </svg> </span>
               </div>
               <div class="elementor-icon-box-content">
@@ -1700,17 +1843,19 @@
                 <span style="background:rgba(251,191,36,0.15); color:#D97706; font-size:11px; font-weight:700; padding:4px 10px; border-radius:100px; text-transform:uppercase;">Consignado</span>
               </div>
               
-              <!-- Simulation Value widget -->
+              <!-- Simulation Value widget (Interactive) -->
               <div style="background:#ffffff; border:1px solid rgba(15,23,42,0.04); border-radius:16px; padding:20px; box-shadow: 0 4px 20px rgba(0,0,0,0.02); margin-bottom:20px;">
                 <div style="font-size:12px; color:#64748B; margin-bottom:6px;">Valor Pretendido</div>
-                <div style="font-size:28px; font-weight:700; color:#0f172a; font-family:'Outfit',sans-serif;">R$ 45.000,00</div>
-                <div style="margin-top:12px; height:6px; background:#e2e8f0; border-radius:3px; position:relative;">
-                  <div style="position:absolute; left:0; top:0; height:100%; width:70%; background:linear-gradient(90deg, #4c1d95, #FBBF24); border-radius:3px;"></div>
-                  <div style="position:absolute; left:70%; top:-4px; width:14px; height:14px; background:#ffffff; border:3px solid #4c1d95; border-radius:50%; box-shadow:0 2px 6px rgba(0,0,0,0.15);"></div>
+                <div id="sim-value-display" style="font-size:28px; font-weight:700; color:#0f172a; font-family:'Outfit',sans-serif;">R$ 45.000,00</div>
+                
+                <!-- Styled Range Input -->
+                <div style="margin-top:12px; position:relative;">
+                  <input type="range" id="sim-value-range" min="5000" max="150000" step="5000" value="45000">
                 </div>
+                
                 <div style="display:flex; justify-content:space-between; margin-top:8px; font-size:11px; color:#94A3B8;">
                   <span>R$ 5.000</span>
-                  <span>R$ 100.000</span>
+                  <span>R$ 150.000</span>
                 </div>
               </div>
 
@@ -1732,6 +1877,33 @@
                   <span style="font-size:13px; font-weight:700; color:#b45309;">Até 96x</span>
                 </div>
               </div>
+
+              <!-- Action Button -->
+              <button id="btn-open-simulation-modal" style="
+                width: 100%;
+                margin-top: 20px;
+                background-color: var(--ns-gold);
+                color: #000000;
+                border: none;
+                padding: 16px 20px;
+                border-radius: 12px;
+                font-family: 'Outfit', sans-serif;
+                font-size: 16px;
+                font-weight: 700;
+                cursor: pointer;
+                box-shadow: 0 4px 15px rgba(251, 191, 36, 0.25);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+              "
+              onmouseover="this.style.backgroundColor='#f59e0b'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 24px rgba(251, 191, 36, 0.45)';"
+              onmouseout="this.style.backgroundColor='#FBBF24'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(251, 191, 36, 0.25)';"
+              >
+                Continuar Simulação
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 2px;"><polyline points="9 18 15 12 9 6"></polyline></svg>
+              </button>
             </div>
           </div>
         </div>
@@ -1904,7 +2076,7 @@
             letter-spacing: -0.03em;
             margin-bottom: 8px;
           ">
-            Mais de <span style="color: var(--ns-gold-text);">10 anos</span><br>
+            Mais de <span style="color: var(--ns-gold-text);">4 anos</span><br>
             cuidando do bolso<br>
             de servidores públicos.
           </h2>
@@ -1947,7 +2119,7 @@
               text-align: center;
               transition: border-color 0.25s;
             ">
-              <div style="font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 800; color: #FBBF24; line-height: 1;">+10</div>
+              <div style="font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 800; color: #FBBF24; line-height: 1;">+4</div>
               <div style="font-family: 'Inter Tight', sans-serif; font-size: 12px; color: #94a3b8; margin-top: 6px; line-height: 1.3;">Anos de<br>experiência</div>
             </div>
             <div style="
@@ -2226,32 +2398,8 @@
               <div class="elementor-icon-box-wrapper">
                 <div class="elementor-icon-box-icon">
                   <span class="elementor-icon">
-                    <svg viewbox="0 0 96 96" xmlns="http://www.w3.org/2000/svg">
-                      <g id="Layer_1"></g>
-                      <g id="Layer_2"></g>
-                      <g id="Layer_3"></g>
-                      <g id="Layer_4">
-                        <g>
-                          <path
-                            d="m70.043 60.324c-.102-.408-.209-.811-.322-1.211-.393-1.402-.818-2.77-1.28-4.071-.088-.244-.176-.49-.266-.734-5.484.581-17.133 1.564-30.397 1.571-13.054 0-25.754-1.134-30.29-1.581-.082.222-.161.444-.24.665-.227.634-.437 1.249-.631 1.846-.133.406-.259.816-.382 1.225-.18.599-.346 1.188-.495 1.766-.048.184-.09.373-.136.558 13.457 2.938 25.227 11.538 32.22 23.489 7.013-12.01 18.783-20.618 32.219-23.523z">
-                          </path>
-                          <path
-                            d="m4.929 63.686c-.607 3.746-.777 7.963-.195 13.346.99 9.259 3.468 13.593 4.429 14.968h27.006v-4.213c-6.306-12.306-17.882-21.172-31.24-24.101z">
-                          </path>
-                          <path
-                            d="m39.493 87.758v4.242h27.021c.948-1.367 3.412-5.705 4.433-14.973.58-5.402.402-9.628-.213-13.382-13.329 2.892-24.899 11.757-31.241 24.113z">
-                          </path>
-                          <path
-                            d="m59.867 21.13c-.195.406-.386.811-.502 1.241-.091.348-.123.712-.162 1.074-.048.435-.102.868-.07 1.305.012.17.026.342.05.51.094.663.267 1.316.546 1.935.047.107.111.204.164.308.333.654.743 1.283 1.291 1.831l2.867 2.865c.001.001.001.003.002.004l1.173 1.173 2.698-2.78 1.837 1.829.959-.958.239-.242-10.776-10.74c-.124.206-.211.429-.316.645z">
-                          </path>
-                          <path
-                            d="m73.31 33.577-.218.217-.971.982 18.055 18.059c.426.43.771.43 1.197 0 .006-.004.012-.012.02-.016.199-.195.232-.438.232-.564.002-.134-.03-.394-.25-.613z">
-                          </path>
-                          <path
-                            d="m38.448 52.555c12.176 0 22.897-.893 28.512-1.465-.107-.277-.209-.542-.319-.823-1.72-4.406-3.664-9.385-5.272-16.046l-2.535-2.535c-4.108-4.111-4.108-10.794 0-14.904l.549-.549c1.09-3.187 3.527-8.722 5.463-12.233h-53.798c2.761 5.129 5.931 15.05 5.19 20.143-1.767 12.157-4.653 19.542-7.196 26.063-.116.296-.223.576-.336.868 5.083.485 16.914 1.477 29.076 1.477.223.004.445.004.666.004zm-.473-20.71c-.04-.917.672-1.692 1.589-1.733.546-.024 1.081-.057 1.607-.093.891-.114 1.712.616 1.781 1.53.069.917-.619 1.716-1.534 1.781-.558.045-1.13.077-1.712.101-.025 0-.049.004-.073.004-.885 0-1.62-.698-1.658-1.59zm1.518 5.579v5.352h-3.323v-5.352zm6.214 13.049-1.643.357c-.116.025-.234.037-.347.037-.769 0-1.458-.536-1.623-1.319-.191-.897.381-1.781 1.28-1.972l1.611-.349c.897-.166 1.786.365 1.984 1.262.199.897-.367 1.786-1.262 1.984zm12.395-6.853c-.288.604-.631 1.173-1.027 1.7-.327.438-.826.669-1.333.669-.345 0-.694-.109-.994-.332-.734-.548-.885-1.591-.335-2.325.266-.357.495-.739.686-1.14.398-.824 1.384-1.173 2.215-.787.83.393 1.181 1.387.788 2.215zm-1.66-8.765c.869-.296 1.812.171 2.108 1.043.209.616.361 1.261.449 1.931.119.909-.522 1.745-1.432 1.863-.073.012-.147.016-.217.016-.821 0-1.536-.613-1.645-1.449-.059-.45-.162-.884-.303-1.299-.295-.867.172-1.809 1.04-2.105zm-5.215-4.049c.408-.816 1.402-1.157 2.228-.747.605.304 1.175.661 1.694 1.075.72.568.842 1.615.274 2.334-.329.414-.816.633-1.307.633-.361 0-.724-.117-1.028-.361-.341-.268-.714-.503-1.114-.702-.821-.411-1.156-1.409-.747-2.232zm-.833 15.131c.428-.109.641-.17.846-.247.856-.308 1.816.146 2.124 1.007.31.864-.14 1.814-1.005 2.126-.294.106-.592.195-.899.276l-.848.215c-.138.032-.278.053-.416.053-.741 0-1.414-.499-1.607-1.25-.229-.889.306-1.794 1.195-2.025zm-4.454-16.532 1.037-.199c.211-.044.446-.085.68-.113.921-.134 1.745.523 1.86 1.437.117.909-.524 1.74-1.435 1.858l-1.554.288c-.099.02-.199.029-.296.029-.789 0-1.489-.564-1.633-1.372-.162-.901.439-1.765 1.341-1.928zm-9.471-21.42c.311-.308.734-.487 1.175-.487.44 0 .864.178 1.175.487l5.869 5.872-2.349 2.354-3.013-3.015v9.751h-3.323v-9.793l-2.678 2.679-2.349-2.354zm-20.136 31.37c0-.674.065-1.327.189-1.968.172-.905 1.053-1.501 1.945-1.315.903.175 1.491 1.047 1.317 1.948-.083.43-.127.88-.127 1.335 0 .917-.745 1.663-1.662 1.663-.917.001-1.662-.746-1.662-1.663zm4.744 6.769c-.313.264-.694.393-1.074.393-.47 0-.939-.203-1.268-.588-.428-.508-.805-1.055-1.13-1.635-.445-.804-.155-1.818.649-2.26.804-.45 1.814-.162 2.26.645.215.394.471.763.757 1.1.595.701.508 1.752-.194 2.345zm1.582-12.474c-.369.255-.714.544-1.026.864-.327.333-.759.503-1.191.503-.418 0-.836-.158-1.161-.475-.657-.641-.669-1.692-.03-2.349.463-.475.97-.901 1.514-1.278.759-.519 1.792-.337 2.313.422.523.755.336 1.789-.419 2.313zm4.683 14.721c-.195.746-.869 1.246-1.607 1.246-.138 0-.28-.02-.418-.053l-1.491-.398.739-3.242 1.584.418c.888.232 1.422 1.141 1.193 2.029zm.46-15.735c-.627-.117-1.02-.15-1.406-.15-.917 0-1.661-.746-1.661-1.663s.744-1.664 1.661-1.664c.586 0 1.185.057 1.788.166.889.166 1.566 1.035 1.416 1.927-.136.811-.771 1.404-1.558 1.404-.079 0-.158-.009-.24-.02zm4.405 18.519c-.108 0-.217-.012-.329-.032l-1.655-.353c-.897-.195-1.465-1.083-1.268-1.98s1.079-1.489 1.978-1.266l1.599.337c.899.183 1.483 1.059 1.302 1.956-.158.79-.852 1.338-1.627 1.338zm2.36-17.757c-.588-.029-1.159-.065-1.714-.114-.915-.077-1.595-.877-1.518-1.794.075-.917.899-1.611 1.794-1.517.519.04 1.053.077 1.604.105.917.045 1.623.824 1.577 1.741-.045.889-.779 1.583-1.658 1.583-.029 0-.057-.004-.085-.004zm2.576 18.414c-.91 0-1.653-.734-1.661-1.647-.008-.921.731-1.672 1.648-1.68.424 0 .927-.041 1.489-.102.925-.154 1.734.556 1.834 1.469.101.913-.556 1.733-1.469 1.834-.688.077-1.305.118-1.826.126-.005 0-.011 0-.015 0z">
-                          </path>
-                        </g>
-                      </g>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor" style="width: 100%; height: 100%; max-width: 48px; max-height: 48px;">
+                      <path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V64c0-35.3-28.7-64-64-64H64zM96 64H288c17.7 0 32 14.3 32 32v64c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V96c0-17.7 14.3-32 32-32zm0 160h48c8.8 0 16 7.2 16 16v48c0 8.8-7.2 16-16 16H96c-8.8 0-16-7.2-16-16V240c0-8.8 7.2-16 16-16zm96 0h48c8.8 0 16 7.2 16 16v48c0 8.8-7.2 16-16 16H192c-8.8 0-16-7.2-16-16V240c0-8.8 7.2-16 16-16zm96 0h48c8.8 0 16 7.2 16 16v48c0 8.8-7.2 16-16 16H288c-8.8 0-16-7.2-16-16V240c0-8.8 7.2-16 16-16zM96 352h48c8.8 0 16 7.2 16 16v48c0 8.8-7.2 16-16 16H96c-8.8 0-16-7.2-16-16V368c0-8.8 7.2-16 16-16zm96 0h48c8.8 0 16 7.2 16 16v48c0 8.8-7.2 16-16 16H192c-8.8 0-16-7.2-16-16V368c0-8.8 7.2-16 16-16zm96 0h48c8.8 0 16 7.2 16 16v48c0 8.8-7.2 16-16 16H288c-8.8 0-16-7.2-16-16V368c0-8.8 7.2-16 16-16z"/>
                     </svg> </span>
                 </div>
                 <div class="elementor-icon-box-content">
@@ -2329,7 +2477,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor"
                       style="width: 100%; height: 100%; max-width: 48px; max-height: 48px;">
                       <path
-                        d="M280.3 31.1c4.7-6.1 12.1-9.7 19.7-9.7s15 3.6 19.7 9.7L563.9 348c5.6 7.3 6.9 17.1 3.5 24.8s-10.7 12.8-19.1 12.8H512V464c0 26.5-21.5 48-48 48H368V384H208v128H112c-26.5 0-48-21.5-48-48V385.6H17.7c-8.4 0-15.7-5.1-19.1-12.8s-2.1-17.5 3.5-24.8L280.3 31.1zM256 192v48H208c-8.8 0-16 7.2-16 16v16c0 8.8 7.2 16 16 16h48v48c0 8.8 7.2 16 16 16h16c0-8.8 7.2-16 16-16v-48h48c0-8.8 7.2-16-16-16v-16c0-8.8-7.2-16-16-16h-48V192c0-8.8-7.2-16-16-16H272c-8.8 0-16 7.2-16 16z" />
+                        d="M64 64C28.7 64 0 92.7 0 128V384c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H64zm64 320H64V320H128v64zM64 192V128h64v64H64zM448 384V320h64v64H448zm64-192H448V128h64v64zM288 160a96 96 0 1 1 0 192 96 96 0 1 1 0-192z" />
                     </svg> </span>
                 </div>
                 <div class="elementor-icon-box-content">
@@ -3151,6 +3299,398 @@
       if (document.readyState === 'complete') go();
       else window.addEventListener('load', go);
     })();</script>
+
+  <!-- Modal de Simulação -->
+  <div id="simulation-modal" style="
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 999999;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  ">
+    <div style="
+      background: #ffffff;
+      border: 1px solid rgba(76, 29, 149, 0.1);
+      border-radius: 24px;
+      width: 90%;
+      max-width: 450px;
+      padding: 30px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      position: relative;
+      transform: scale(0.9);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      font-family: 'Inter Tight', sans-serif;
+    }">
+      <!-- Botão Fechar -->
+      <button id="btn-close-simulation-modal" style="
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: rgba(15, 23, 42, 0.05);
+        border: none;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: #475569;
+        transition: all 0.2s ease;
+      " onmouseover="this.style.background='rgba(15,23,42,0.1)'" onmouseout="this.style.background='rgba(15,23,42,0.05)'">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+
+      <!-- Indicador de Passos -->
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 24px;">
+        <span id="step-dot-1" style="width: 20px; height: 6px; background: var(--ns-brand-purple); border-radius: 100px; transition: all 0.3s ease;"></span>
+        <span id="step-dot-2" style="width: 6px; height: 6px; background: #e2e8f0; border-radius: 50%; transition: all 0.3s ease;"></span>
+      </div>
+
+      <!-- PASSO 1: Seleção de Convenio -->
+      <div id="sim-step-1">
+        <h3 style="font-family: 'Outfit', sans-serif; font-size: 22px; font-weight: 800; color: #0f172a; margin-bottom: 8px; line-height: 1.2;">Qual o seu convênio?</h3>
+        <p style="font-size: 14px; color: #64748b; margin-bottom: 20px; line-height: 1.4;">Selecione uma das opções abaixo para continuarmos.</p>
+        
+        <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 10px;">
+          <button class="convenio-option" data-value="Servidor Estadual (GEA)" style="
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            background: #ffffff;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            border-radius: 14px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1e293b;
+            text-align: left;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s ease;
+          ">
+            <div style="background: rgba(76,29,149,0.08); color: var(--ns-brand-purple); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12px;">GE</div>
+            Servidor Estadual (GEA)
+          </button>
+
+          <button class="convenio-option" data-value="Servidor Federal (SIAPE)" style="
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            background: #ffffff;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            border-radius: 14px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1e293b;
+            text-align: left;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s ease;
+          ">
+            <div style="background: rgba(251,191,36,0.12); color: #b45309; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12px;">FD</div>
+            Servidor Federal (SIAPE)
+          </button>
+
+          <button class="convenio-option" data-value="Aposentado ou Pensionista INSS" style="
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            background: #ffffff;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            border-radius: 14px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1e293b;
+            text-align: left;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s ease;
+          ">
+            <div style="background: rgba(124,58,237,0.08); color: var(--ns-lilac); width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12px;">IN</div>
+            Aposentado / Pensionista INSS
+          </button>
+
+          <button class="convenio-option" data-value="Outros Convênios" style="
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            background: #ffffff;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            border-radius: 14px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1e293b;
+            text-align: left;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s ease;
+          ">
+            <div style="background: rgba(71,85,105,0.08); color: #475569; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12px;">OU</div>
+            Outros Públicos (Municipal / Bolsa Família)
+          </button>
+        </div>
+      </div>
+
+      <!-- PASSO 2: Informar CPF -->
+      <div id="sim-step-2" style="display: none;">
+        <h3 style="font-family: 'Outfit', sans-serif; font-size: 22px; font-weight: 800; color: #0f172a; margin-bottom: 8px; line-height: 1.2;">Informe o seu CPF</h3>
+        <p style="font-size: 14px; color: #64748b; margin-bottom: 20px; line-height: 1.4;">Precisamos do CPF para realizar uma análise prévia das suas condições.</p>
+        
+        <div style="margin-bottom: 20px;">
+          <label for="sim-cpf" style="display: block; font-size: 11px; font-weight: 700; color: #475569; text-transform: uppercase; margin-bottom: 6px; letter-spacing: 0.5px;">CPF do Titular</label>
+          <input type="text" id="sim-cpf" placeholder="000.000.000-00" maxlength="14" style="
+            width: 100%;
+            padding: 14px 16px;
+            border: 1.5px solid rgba(15, 23, 42, 0.08);
+            border-radius: 12px;
+            font-size: 16px;
+            font-family: inherit;
+            color: #0f172a;
+            outline: none;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+          ">
+          <span id="sim-cpf-error" style="color: #ef4444; font-size: 12px; display: none; margin-top: 6px; font-weight: 500;">CPF inválido. Verifique o número digitado.</span>
+        </div>
+
+        <div style="display: flex; gap: 10px;">
+          <button id="btn-back-step-1" style="
+            flex: 1;
+            background: #ffffff;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            color: #475569;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+          " onmouseover="this.style.background='rgba(15,23,42,0.02)'" onmouseout="this.style.background='#ffffff'">Voltar</button>
+          
+          <button id="btn-submit-simulation" style="
+            flex: 2;
+            background: var(--ns-gold);
+            color: #000;
+            border: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(251, 191, 36, 0.25);
+            transition: all 0.2s ease;
+          " onmouseover="this.style.backgroundColor='#f59e0b'" onmouseout="this.style.backgroundColor='#FBBF24'">Finalizar Simulação</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      // Elements
+      const rangeInput = document.getElementById('sim-value-range');
+      const valueDisplay = document.getElementById('sim-value-display');
+      const openModalBtn = document.getElementById('btn-open-simulation-modal');
+      const closeModalBtn = document.getElementById('btn-close-simulation-modal');
+      const modal = document.getElementById('simulation-modal');
+      const convenioOptions = document.querySelectorAll('.convenio-option');
+      const cpfInput = document.getElementById('sim-cpf');
+      const cpfError = document.getElementById('sim-cpf-error');
+      const backToStep1Btn = document.getElementById('btn-back-step-1');
+      const submitBtn = document.getElementById('btn-submit-simulation');
+      
+      const step1 = document.getElementById('sim-step-1');
+      const step2 = document.getElementById('sim-step-2');
+      const dot1 = document.getElementById('step-dot-1');
+      const dot2 = document.getElementById('step-dot-2');
+      
+      let selectedConvenio = '';
+      
+      // Formatting helper for BRL currency (R$ XX.XXX,XX)
+      function formatCurrency(value) {
+        return 'R$ ' + parseInt(value).toLocaleString('pt-BR', {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        });
+      }
+      
+      // Update slider track gradient fill dynamically
+      function updateSliderTrack() {
+        const val = rangeInput.value;
+        const min = rangeInput.min ? rangeInput.min : 5000;
+        const max = rangeInput.max ? rangeInput.max : 150000;
+        const pct = (val - min) / (max - min) * 100;
+        rangeInput.style.background = `linear-gradient(to right, var(--ns-brand-purple) 0%, var(--ns-brand-purple) ${pct}%, #e2e8f0 ${pct}%, #e2e8f0 100%)`;
+        valueDisplay.textContent = formatCurrency(val);
+      }
+      
+      // Initialize Slider
+      if (rangeInput) {
+        rangeInput.addEventListener('input', updateSliderTrack);
+        updateSliderTrack();
+      }
+      
+      // Modal Controls
+      function openModal() {
+        modal.style.display = 'flex';
+        // Trigger reflow for transition
+        modal.offsetHeight;
+        modal.style.opacity = '1';
+        modal.querySelector('div').style.transform = 'scale(1)';
+        goToStep(1);
+      }
+      
+      function closeModal() {
+        modal.style.opacity = '0';
+        modal.querySelector('div').style.transform = 'scale(0.9)';
+        setTimeout(() => {
+          modal.style.display = 'none';
+        }, 300);
+      }
+      
+      if (openModalBtn) openModalBtn.addEventListener('click', openModal);
+      if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+      
+      // Close modal on click outside content
+      modal.addEventListener('click', function(e) {
+        if (e.target === modal) closeModal();
+      });
+      
+      // Steps Management
+      function goToStep(step) {
+        if (step === 1) {
+          step1.style.display = 'block';
+          step2.style.display = 'none';
+          dot1.style.width = '20px';
+          dot1.style.height = '6px';
+          dot1.style.borderRadius = '100px';
+          dot1.style.background = 'var(--ns-brand-purple)';
+          
+          dot2.style.width = '6px';
+          dot2.style.height = '6px';
+          dot2.style.borderRadius = '50%';
+          dot2.style.background = '#e2e8f0';
+        } else if (step === 2) {
+          step1.style.display = 'none';
+          step2.style.display = 'block';
+          dot1.style.width = '6px';
+          dot1.style.height = '6px';
+          dot1.style.borderRadius = '50%';
+          dot1.style.background = '#e2e8f0';
+          
+          dot2.style.width = '20px';
+          dot2.style.height = '6px';
+          dot2.style.borderRadius = '100px';
+          dot2.style.background = 'var(--ns-brand-purple)';
+          
+          cpfInput.focus();
+        }
+      }
+      
+      // Step 1: Select Convenio
+      convenioOptions.forEach(btn => {
+        btn.addEventListener('click', function() {
+          selectedConvenio = this.getAttribute('data-value');
+          goToStep(2);
+        });
+      });
+      
+      // Back button
+      if (backToStep1Btn) {
+        backToStep1Btn.addEventListener('click', function() {
+          goToStep(1);
+        });
+      }
+      
+      // CPF Masking
+      if (cpfInput) {
+        cpfInput.addEventListener('input', function(e) {
+          let value = e.target.value.replace(/\D/g, '');
+          if (value.length > 11) value = value.substring(0, 11);
+          
+          // Apply mask
+          if (value.length > 9) {
+            value = value.replace(/^(\d{3})(\d{3})(\d{3})(\d{1,2})$/, '$1.$2.$3-$4');
+          } else if (value.length > 6) {
+            value = value.replace(/^(\d{3})(\d{3})(\d{1,3})$/, '$1.$2.$3');
+          } else if (value.length > 3) {
+            value = value.replace(/^(\d{3})(\d{1,3})$/, '$1.$2');
+          }
+          
+          e.target.value = value;
+          cpfError.style.display = 'none';
+        });
+      }
+      
+      // CPF Validation helper (simple check)
+      function validateCPF(cpf) {
+        cpf = cpf.replace(/\D/g, '');
+        if (cpf.length !== 11) return false;
+        
+        // Check for known invalid CPFs
+        if (/^(\d)\1+$/.test(cpf)) return false;
+        
+        // Validate digits
+        let add = 0;
+        for (let i = 0; i < 9; i++) add += parseInt(cpf.charAt(i)) * (10 - i);
+        let rev = 11 - (add % 11);
+        if (rev === 10 || rev === 11) rev = 0;
+        if (rev !== parseInt(cpf.charAt(9))) return false;
+        
+        add = 0;
+        for (let i = 0; i < 10; i++) add += parseInt(cpf.charAt(i)) * (11 - i);
+        rev = 11 - (add % 11);
+        if (rev === 10 || rev === 11) rev = 0;
+        if (rev !== parseInt(cpf.charAt(10))) return false;
+        
+        return true;
+      }
+      
+      // Step 2: Finalize & Redirect
+      if (submitBtn) {
+        submitBtn.addEventListener('click', function() {
+          const cpf = cpfInput.value;
+          if (!validateCPF(cpf)) {
+            cpfError.style.display = 'block';
+            cpfInput.focus();
+            return;
+          }
+          
+          const finalVal = rangeInput.value;
+          const formattedVal = formatCurrency(finalVal);
+          
+          // Build WhatsApp link
+          const phone = '5596991152170'; // Target phone number (DDD 96)
+          const text = `Olá! Gostaria de fazer uma simulação de empréstimo no valor de ${formattedVal} para o convênio ${selectedConvenio}. Meu CPF é ${cpf}.`;
+          const encodedText = encodeURIComponent(text);
+          const waUrl = `https://wa.me/${phone}?text=${encodedText}`;
+          
+          // Open WhatsApp
+          window.open(waUrl, '_blank');
+          
+          // Close modal
+          closeModal();
+          
+          // Reset inputs
+          cpfInput.value = '';
+          selectedConvenio = '';
+        });
+      }
+    })();
+  </script>
 </body>
 
 </html>
