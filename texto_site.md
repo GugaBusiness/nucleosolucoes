@@ -47,9 +47,9 @@ Este documento contém todo o texto importante do site estruturado por **dobras*
 *   **Título Principal (H2):** Convênios, Prazos e Margens Regulamentadas
 *   **Texto de Apoio:** Confira as regras e prazos de acordo com o seu perfil de convênio:
 *   **Destaques de Convênios:**
-    *   ✔ **Servidores Estaduais (GEA):** Parcelamento exclusivo em até 144x.
+    *   ✔ **Servidores Estaduais (GEA) & Amprev:** Parcelamento exclusivo em até 144x.
     *   ✔ **Servidores Federais (SIAPE) & INSS:** Parcelamento em até 96x.
-    *   ✔ **Outros Públicos:** Atendimento especializado para Servidores Municipais (PMM) e Beneficiários do Bolsa Família.
+    *   ✔ **Outros Públicos:** Atendimento especializado para Servidores Municipais (PMM, Amprev) e Beneficiários do Bolsa Família.
 *   **Botão de Ação:** Simular Crédito
 *   **Indicadores de Margem (Estatísticas):**
     *   **35%** — Margem para parcelas
@@ -148,11 +148,10 @@ Este documento contém todo o texto importante do site estruturado por **dobras*
 *   **Título da Newsletter:** Learn. Grow. Prosper. Join Our Financial Newsletter
 *   **Texto de Apoio:** We provide intelligent tools, custom insights, and top-tier security to simplify your financial life.
 *   **Informações de Contato:**
-    *   **Endereço:** 410 Sandtown, California 94001, USA
-    *   **Telefone:** 22 (555) 234 890
-    *   **E-mail:** support@domain.com
+    *   **Endereço:** Atendimento Digital | Macapá-AP
+    *   **Telefone/WhatsApp:** (96) 99115-2170
 *   **Rodapé Institucional:**
-    *   © 2026 Núcleo Soluções. Todos os direitos reservados. CNPJ: 50.842.128/0001-95 | Correspondente Bancário autorizado pelas normas do Banco Central do Brasil.
+    *   © 2026 Núcleo Soluções. Todos os direitos reservados. CNPJ: 49.009.794/0001-43 | Correspondente Bancário autorizado pelas normas do Banco Central do Brasil.
     *   Desenvolvido por **Guga Business**
 
 ---
@@ -164,5 +163,5 @@ Este documento contém todo o texto importante do site estruturado por **dobras*
     *   Nome Completo
     *   WhatsApp (Celular)
     *   CPF (Apenas números)
-    *   Convênio / Órgão (Opções: Servidor Estadual (GEA), Servidor Municipal (PMM), Servidor Federal (SIAPE), Beneficiário INSS, Bolsa Família)
+    *   Convênio / Órgão (Opções: Servidor Estadual (GEA), Aposentado ou Pensionista Amprev, Servidor Municipal (PMM), Servidor Federal (SIAPE), Beneficiário INSS, Bolsa Família)
 *   **Botão de Envio:** Simular Agora
