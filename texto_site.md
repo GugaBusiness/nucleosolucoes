@@ -149,7 +149,7 @@ Este documento contém todo o texto importante do site estruturado por **dobras*
 *   **Texto de Apoio:** We provide intelligent tools, custom insights, and top-tier security to simplify your financial life.
 *   **Informações de Contato:**
     *   **Endereço:** Atendimento Digital | Macapá-AP
-    *   **Telefone/WhatsApp:** (96) 99115-2170
+    *   **Telefone/WhatsApp:** (96) 99127-3536
 *   **Rodapé Institucional:**
     *   © 2026 Núcleo Soluções. Todos os direitos reservados. CNPJ: 49.009.794/0001-43 | Correspondente Bancário autorizado pelas normas do Banco Central do Brasil.
     *   Desenvolvido por **Guga Business**
@@ -163,5 +163,5 @@ Este documento contém todo o texto importante do site estruturado por **dobras*
     *   Nome Completo
     *   WhatsApp (Celular)
     *   CPF (Apenas números)
-    *   Convênio / Órgão (Opções: Servidor Estadual (GEA), Aposentado ou Pensionista Amprev, Servidor Municipal (PMM), Servidor Federal (SIAPE), Beneficiário INSS, Bolsa Família)
+    *   Convênio / Solução (Opções: Servidor Estadual (GEA), Aposentado ou Pensionista Amprev, Servidor Federal (SIAPE), Beneficiário INSS, Antecipação FGTS, Energia Solar via AFAP, Compra / Antecipação de Precatórios, Outros Convênios)
 *   **Botão de Envio:** Simular Agora
